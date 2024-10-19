@@ -1,0 +1,36 @@
+{
+  "name": "vite-template",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "watch": "vite",
+    "build": "tsc -b && vite build",
+    "start": "vite preview",
+    "watch:nodemon": "nodemon --quiet --watch . -e ts,tsx,html,css,scss,json",
+    "watch:eslint": "yarn watch:nodemon --exec 'yarn eslint . --fix'",
+    "watch:prettier": "yarn watch:nodemon --exec 'yarn prettier . --write'"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7",
+    "@eslint/js": "^9.11.1",
+    "@types/node": "^22.7.6",
+    "@types/react": "^18.3.10",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.2",
+    "eslint": "^9.11.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react-hooks": "^5.1.0-rc.0",
+    "eslint-plugin-react-refresh": "^0.4.12",
+    "eslint-plugin-sort": "^3.0.2",
+    "globals": "^15.9.0",
+    "prettier": "^3.3.3",
+    "typescript": "^5.5.3",
+    "typescript-eslint": "^8.7.0",
+    "vite": "^5.4.8"
+  }
+}
