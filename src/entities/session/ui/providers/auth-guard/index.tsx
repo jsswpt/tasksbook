@@ -13,9 +13,7 @@ export type AuthGuardProps = {
 export const AuthGuard = observer(({ children, reverse }: AuthGuardProps) => {
   const { authorizeOnLoad, isAuth, status } = sessionModel;
 
-  useLayoutEffect(() => {
-    authorizeOnLoad();
-  }, []);
+  useLayoutEffect(() => authorizeOnLoad(), []);
 
   if (status !== "done") {
     return (
