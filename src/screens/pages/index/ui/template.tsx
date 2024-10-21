@@ -1,5 +1,6 @@
 import { Box } from "@mui/material";
 
+import { AppBar } from "root/widgets/app-bar";
 import { Sidebar } from "root/widgets/sidebar";
 
 import { APPBAR_HEIGHT, SIDEBAR_WIDTH } from "root/shared/lib/mui";
@@ -11,6 +12,7 @@ type TemplateProps = {
 
 export const Template = ({ isFallback }: TemplateProps) => (
   <Box minHeight="100svh">
+    <AppBar />
     <Sidebar />
     <Box
       padding={({ spacing }) => spacing(16)}

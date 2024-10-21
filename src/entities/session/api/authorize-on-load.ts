@@ -17,7 +17,7 @@ export const authorizeOnLoadReq = () =>
         first_name: "Johnn",
         id: 1,
         last_name: "Doe",
-        nick_name: "@jsswpt",
+        nick_name: "jsswpt",
       });
     }, 1000);
   });
