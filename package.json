@@ -1,10 +1,9 @@
 {
-  "name": "vite-template",
-  "private": true,
+  "name": "tasksbook",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "watch": "vite",
+    "watch": "vite --port 3000",
     "build": "tsc -b && vite build",
     "start": "vite preview",
     "watch:nodemon": "nodemon --quiet --watch . -e ts,tsx,html,css,scss,json",
@@ -12,11 +11,18 @@
     "watch:prettier": "yarn watch:nodemon --exec 'yarn prettier . --write'"
   },
   "dependencies": {
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@mui/icons-material": "^6.1.4",
+    "@mui/material": "^6.1.4",
+    "json-server": "^1.0.0-beta.3",
+    "mobx": "^6.13.5",
+    "mobx-react-lite": "^4.0.7",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.27.0"
   },
   "devDependencies": {
-    "nodemon": "^3.1.7",
     "@eslint/js": "^9.11.1",
     "@types/node": "^22.7.6",
     "@types/react": "^18.3.10",
@@ -28,6 +34,7 @@
     "eslint-plugin-react-refresh": "^0.4.12",
     "eslint-plugin-sort": "^3.0.2",
     "globals": "^15.9.0",
+    "nodemon": "^3.1.7",
     "prettier": "^3.3.3",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.7.0",
