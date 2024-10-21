@@ -1,5 +1,7 @@
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 
+import { AuthLayout } from "root/layouts/auth-layout";
+
 import { AuthGuard } from "root/entities/session";
 
 import { IndexPage } from "./index/index";
@@ -21,7 +23,7 @@ const router = createBrowserRouter([
     ],
     element: (
       <AuthGuard>
-        <Outlet />
+        <AuthLayout />
       </AuthGuard>
     ),
     path: "/",
