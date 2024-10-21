@@ -11,14 +11,17 @@ export type AuthGuardProps = {
 };
 
 export const AuthGuard = observer(({ children, reverse }: AuthGuardProps) => {
-  const { authorizeOnLoad, isAuth, status } = sessionModel;
+  const { authorizeOnLoad, isAuth, status, user } = sessionModel;
+
+  console.log(user);
+  console.log(status);
 
   useLayoutEffect(() => authorizeOnLoad(), []);
 
   if (status !== "done") {
     return (
       <Stack height="100svh" alignItems="center" justifyContent="center">
-        <CircularProgress color="inherit" />
+        <CircularProgress color="inherit" size={32} />
       </Stack>
     );
   }

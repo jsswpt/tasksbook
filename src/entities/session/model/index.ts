@@ -61,22 +61,24 @@ class Session {
   authorizeOnLoad = () => {
     this.status = "pending";
 
-    authorizeOnLoadReq().then(
-      ({ avatar, first_name, id, last_name, nick_name }) => {
-        this.user = {
-          avatar: avatar,
-          firstName: first_name,
-          id: id,
-          lastName: last_name,
-          nickName: nick_name,
-        };
-      },
-      (error: Error) => {
-        this.error = error.message;
-      },
-    );
-
-    this.status = "done";
+    authorizeOnLoadReq()
+      .then(
+        ({ avatar, first_name, id, last_name, nick_name }) => {
+          this.user = {
+            avatar: avatar,
+            firstName: first_name,
+            id: id,
+            lastName: last_name,
+            nickName: nick_name,
+          };
+        },
+        (error: Error) => {
+          this.error = error.message;
+        },
+      )
+      .finally(() => {
+        this.status = "done";
+      });
   };
 }
 
