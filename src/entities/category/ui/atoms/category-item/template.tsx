@@ -5,14 +5,19 @@ type TemplateProps = {
   icon: JSX.Element;
   title: string | JSX.Element;
   id?: string;
+  disabled?: boolean;
 };
 
-export const Template = ({ icon, id, title }: TemplateProps) => (
-  <MenuItem sx={{ position: "relative" }} key={title + (id || "")}>
+export const Template = ({ disabled, icon, id, title }: TemplateProps) => (
+  <MenuItem
+    disabled={disabled}
+    sx={{ position: "relative" }}
+    key={title + (id || "")}
+  >
     {id && (
       <Link
         component={RouterLink}
-        to={`#${id}`}
+        to={`/category/${id}`}
         sx={{
           bottom: 0,
           left: 0,

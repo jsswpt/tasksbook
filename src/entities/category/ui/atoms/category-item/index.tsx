@@ -6,14 +6,27 @@ const Component = lazy(() =>
   import("./component").then((m) => ({ default: m.Component })),
 );
 
-type CategoryItem = {
-  icon: JSX.Element;
-  title: string;
-  id: string;
-};
+type CategoryItem =
+  | {
+      isFallback?: false;
+      icon: JSX.Element;
+      title: string;
+      id: string;
+    }
+  | {
+      isFallback: true;
+    };
 
-export const CategoryItem = ({ icon, id, title }: CategoryItem) => (
-  <Suspense fallback={<Fallback />}>
-    <Component icon={icon} id={id} title={title} />
-  </Suspense>
-);
+export const CategoryItem = (props: CategoryItem) => {
+  if (props.isFallback) {
+    return <Fallback />;
+  }
+
+  const { icon, id, title } = props;
+
+  return (
+    <Suspense fallback={<Fallback />}>
+      <Component icon={icon} id={id} title={title} />
+    </Suspense>
+  );
+};

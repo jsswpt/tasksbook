@@ -1,8 +1,13 @@
+import { Box, Stack } from "@mui/material";
+
 type TemplateProps = {
-  // TODO: удалить
-  isFallback?: boolean;
+  categories: JSX.Element;
+  fab: JSX.Element;
 };
 
-export const Template = ({ isFallback }: TemplateProps) => (
-  <>'CategoriesPage' template {isFallback ? "fallback" : "component"}</>
+export const Template = ({ categories, fab }: TemplateProps) => (
+  <Stack flex={1} justifyContent="space-between">
+    <Box>{categories}</Box>
+    {fab}
+  </Stack>
 );

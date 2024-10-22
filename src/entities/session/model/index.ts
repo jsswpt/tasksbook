@@ -1,5 +1,7 @@
 import { makeAutoObservable } from "mobx";
 
+import { RequestStatus } from "root/shared/lib/api";
+
 import { authorizeOnLoadReq } from "../api/authorize-on-load";
 
 type User = {
@@ -10,13 +12,11 @@ type User = {
   avatar?: string;
 };
 
-type Status = "pending" | "done";
-
 class Session {
   private _user: User | null = null;
   private _isAuth = false;
   private _error: string | null = null;
-  private _status: Status | null = null;
+  private _status: RequestStatus | null = null;
 
   constructor() {
     makeAutoObservable(this);
@@ -34,7 +34,7 @@ class Session {
     return this._status;
   }
 
-  private set status(value: Status | null) {
+  private set status(value: RequestStatus | null) {
     this._status = value;
   }
 

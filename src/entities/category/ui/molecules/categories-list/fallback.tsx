@@ -1,7 +1,7 @@
 import { CategoryItem } from "../..";
 import { Template } from "./template";
 
-const Item = <CategoryItem icon={<></>} id="" title="" />;
+const Item = <CategoryItem isFallback />;
 
 export const Fallback = () => (
   <Template
