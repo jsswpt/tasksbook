@@ -4,16 +4,12 @@ import { Link as RouterLink } from "react-router-dom";
 type TemplateProps = {
   icon: JSX.Element;
   title: string | JSX.Element;
-  id?: string;
+  id?: number;
   disabled?: boolean;
 };
 
 export const Template = ({ disabled, icon, id, title }: TemplateProps) => (
-  <MenuItem
-    disabled={disabled}
-    sx={{ position: "relative" }}
-    key={title + (id || "")}
-  >
+  <MenuItem disabled={disabled} sx={{ position: "relative" }}>
     {id && (
       <Link
         component={RouterLink}

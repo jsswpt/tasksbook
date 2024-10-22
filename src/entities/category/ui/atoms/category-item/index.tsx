@@ -11,7 +11,7 @@ type CategoryItem =
       isFallback?: false;
       icon: JSX.Element;
       title: string;
-      id: string;
+      id: number;
     }
   | {
       isFallback: true;
