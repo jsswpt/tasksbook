@@ -18,7 +18,7 @@ export const Component = observer(() => {
               icon={
                 id % 2 === 0 ? <SoapOutlined /> : <DirectionsSubwayOutlined />
               }
-              id={id.toString()}
+              id={id}
               title={title}
             />
           ))}
