@@ -13,12 +13,12 @@ export const Component = () => {
 
   return (
     <Template
-      value={pathname}
+      value={pathname.split("/")[1]}
       items={[
         <BottomNavigationAction
           component={Link}
           to="/categories"
-          value="/categories"
+          value="categories"
           label="Категории"
           icon={<CategoryOutlined />}
           key="categories"
@@ -33,7 +33,7 @@ export const Component = () => {
         <BottomNavigationAction
           component={Link}
           to="/profile"
-          value="/profile"
+          value="profile"
           label="Профиль"
           icon={<PersonOutline />}
           key="profile"

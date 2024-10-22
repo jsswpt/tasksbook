@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Stack } from "@mui/material";
 
 import { APPBAR_HEIGHT, SIDEBAR_WIDTH } from "root/shared/lib/mui";
 
@@ -19,13 +19,13 @@ export const Template = ({
     {appBar}
     {sidebar}
     {bottomBar}
-    <Box
-      paddingBottom={bottomBar ? ({ spacing }) => spacing(60) : 16}
-      paddingLeft={sidebar ? ({ spacing }) => spacing(SIDEBAR_WIDTH + 16) : 16}
-      paddingRight={({ spacing }) => spacing(16)}
-      paddingTop={appBar ? ({ spacing }) => spacing(APPBAR_HEIGHT + 16) : 0}
+    <Stack
+      paddingBottom={bottomBar ? ({ spacing }) => spacing(60) : 0}
+      paddingLeft={sidebar ? ({ spacing }) => spacing(SIDEBAR_WIDTH) : 0}
+      paddingTop={appBar ? ({ spacing }) => spacing(APPBAR_HEIGHT) : 0}
+      minHeight="100svh"
     >
       {children}
-    </Box>
+    </Stack>
   </>
 );
