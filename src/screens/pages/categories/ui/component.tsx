@@ -4,7 +4,13 @@ import {
   EditOutlined,
   MoreVert,
 } from "@mui/icons-material";
-import { SpeedDial, SpeedDialAction, SpeedDialIcon } from "@mui/material";
+import {
+  FabProps,
+  SpeedDial,
+  SpeedDialAction,
+  SpeedDialIcon,
+} from "@mui/material";
+import { Link } from "react-router-dom";
 
 import { CategoriesList } from "root/entities/category";
 
@@ -26,11 +32,23 @@ export const Component = () => (
         }}
       >
         <SpeedDialAction
+          FabProps={
+            {
+              component: Link,
+              to: "?modal=new-category",
+            } as Partial<FabProps>
+          }
           icon={<AddOutlined />}
           tooltipTitle="Добавить"
           onContextMenu={(e) => e.preventDefault()}
         />
         <SpeedDialAction
+          FabProps={
+            {
+              component: Link,
+              to: "?mode=edit",
+            } as Partial<FabProps>
+          }
           icon={<EditOutlined />}
           tooltipTitle="Редактировать"
           onContextMenu={(e) => e.preventDefault()}

@@ -17,7 +17,7 @@ export const Template = ({ disabled, icon, id, title }: TemplateProps) => (
     {id && (
       <Link
         component={RouterLink}
-        to={`/category/${id}`}
+        to={`/categories/${id}`}
         sx={{
           bottom: 0,
           left: 0,

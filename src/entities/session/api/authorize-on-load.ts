@@ -7,11 +7,8 @@ type UserResponse = {
 };
 
 export const authorizeOnLoadReq = () =>
-  new Promise<UserResponse>((res, rej) => {
+  new Promise<UserResponse>((res) => {
     setTimeout(() => {
-      if (Date.now() % 2 === 0) {
-        rej(new Error("Some error"));
-      }
       res({
         avatar: "",
         first_name: "Johnn",

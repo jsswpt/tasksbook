@@ -5,6 +5,7 @@ import { AuthLayout } from "root/layouts/auth-layout";
 import { AuthGuard } from "root/entities/session";
 
 import { CategoriesPage } from "./categories";
+import { CategoryPage } from "./category";
 import { IndexPage } from "./index/index";
 import { ProfilePage } from "./profile";
 import { SignInPage } from "./sign-in";
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         element: <CategoriesPage />,
         path: "categories",
+      },
+      {
+        element: <CategoryPage />,
+        path: "categories/:categoryId",
       },
     ],
     element: (
