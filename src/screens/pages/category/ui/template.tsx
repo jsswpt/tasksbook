@@ -1,8 +1,14 @@
+import { Box } from "@mui/material";
+
 type TemplateProps = {
-  // TODO: удалить
-  isFallback?: boolean;
+  tasks: React.ReactNode;
 };
 
-export const Template = ({ isFallback }: TemplateProps) => (
-  <>'CategoryPage' template {isFallback ? "fallback" : "component"}</>
+export const Template = ({ tasks }: TemplateProps) => (
+  <Box
+    padding={({ spacing }) => spacing(16)}
+    maxWidth={({ spacing }) => spacing(768)}
+  >
+    {tasks}
+  </Box>
 );
