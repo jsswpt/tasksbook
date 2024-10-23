@@ -25,7 +25,7 @@ class Task {
     return this._tasks;
   }
 
-  set tasks(value) {
+  private set tasks(value) {
     this._tasks = value;
   }
 
@@ -33,7 +33,7 @@ class Task {
     return this._status;
   }
 
-  set status(value) {
+  private set status(value) {
     this._status = value;
   }
 
