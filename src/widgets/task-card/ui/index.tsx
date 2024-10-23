@@ -10,14 +10,16 @@ type TaskCardProps =
   | {
       isFallback?: false;
       id: number;
+      categoryId: number;
       title: string;
+      isDone: boolean;
     }
   | { isFallback: true };
 
 export const TaskCard = (props: TaskCardProps) =>
   !props.isFallback ? (
     <Suspense fallback={<Fallback />}>
-      <Component id={props.id} title={props.title} />
+      <Component {...props} />
     </Suspense>
   ) : (
     <Fallback />

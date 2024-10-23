@@ -7,13 +7,13 @@ const Component = lazy(() =>
 );
 
 type ToggleTaskStatusProps =
-  | { isFallback?: false; id: number }
+  | { isFallback?: false; id: number; isDone: boolean; categoryId: number }
   | { isFallback: true };
 
 export const ToggleTaskStatus = (props: ToggleTaskStatusProps) =>
   !props.isFallback ? (
     <Suspense fallback={<Fallback />}>
-      <Component id={props.id} />
+      <Component {...props} />
     </Suspense>
   ) : (
     <Fallback />
