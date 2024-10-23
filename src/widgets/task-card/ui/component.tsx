@@ -8,12 +8,21 @@ import { Template } from "./template";
 
 type ComponentProps = {
   id: number;
+  categoryId: number;
   title: string;
+  isDone: boolean;
 };
 
-export const Component = ({ id, title }: ComponentProps) => (
+export const Component = ({
+  categoryId,
+  id,
+  isDone,
+  title,
+}: ComponentProps) => (
   <Template
-    toggleStatusButton={<ToggleTaskStatus id={id} />}
+    toggleStatusButton={
+      <ToggleTaskStatus id={id} isDone={isDone} categoryId={categoryId} />
+    }
     title={title}
     deleteButton={
       <IconButton
