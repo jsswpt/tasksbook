@@ -4,17 +4,17 @@ import { RequestStatus } from "root/shared/lib/api";
 
 import { getTasksByCategoryIdReq } from "../api";
 
-type TaskItem = {
+export type TaskItem = {
   categoryId: number;
   id: number;
   title: string;
   isDone: boolean;
 };
 
-type TaskList = Record<number, Array<TaskItem>>;
+type TaskRecord = Record<number, Array<TaskItem>>;
 
 class Task {
-  private _tasks: TaskList = {};
+  private _tasks: TaskRecord = {};
   private _status: RequestStatus | null = null;
 
   constructor() {
@@ -25,7 +25,7 @@ class Task {
     return this._tasks;
   }
 
-  private set tasks(value) {
+  set tasks(value) {
     this._tasks = value;
   }
 

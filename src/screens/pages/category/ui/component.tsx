@@ -1,11 +1,11 @@
 import { Stack } from "@mui/material";
 import { observer } from "mobx-react-lite";
-import { useLayoutEffect } from "react";
+import { useCallback, useLayoutEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import { TaskCard } from "root/widgets/task-card";
 
-import { taskModel } from "root/entities/task";
+import { TaskItem, TaskList, taskModel } from "root/entities/task";
 
 import { Fallback } from "./fallback";
 import { Template } from "./template";
@@ -19,9 +19,12 @@ export const Component = observer(() => {
     getTasksByCategoryId(Number(categoryId));
   }, [categoryId]);
 
-  const { status, tasks } = taskModel;
+  const Render = useCallback(
+    (task: TaskItem) => <TaskCard {...task} key={task.id} />,
+    [],
+  );
 
-  const currentTasks = tasks[Number(categoryId)];
+  const { status } = taskModel;
 
   if (status !== "done") {
     return <Fallback />;
@@ -31,7 +34,7 @@ export const Component = observer(() => {
     <Template
       tasks={
         <Stack gap={({ spacing }) => spacing(8)}>
-          {currentTasks?.map((task) => <TaskCard {...task} key={task.id} />)}
+          <TaskList categoryId={Number(categoryId)}>{Render}</TaskList>
         </Stack>
       }
     />
