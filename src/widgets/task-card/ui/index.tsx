@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy, memo, Suspense } from "react";
 
 import { Fallback } from "./fallback";
 
@@ -16,11 +16,12 @@ type TaskCardProps =
     }
   | { isFallback: true };
 
-export const TaskCard = (props: TaskCardProps) =>
+export const TaskCard = memo((props: TaskCardProps) =>
   !props.isFallback ? (
     <Suspense fallback={<Fallback />}>
       <Component {...props} />
     </Suspense>
   ) : (
     <Fallback />
-  );
+  ),
+);
