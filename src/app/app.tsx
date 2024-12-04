@@ -1,3 +1,9 @@
 import { MuiProvider } from './providers'
 
-export const App = () => <MuiProvider>App</MuiProvider>
+import { AppRouter } from '@/screens'
+
+export const App = () => (
+  <MuiProvider>
+    <AppRouter />
+  </MuiProvider>
+)
