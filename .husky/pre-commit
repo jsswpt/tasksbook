@@ -1,0 +1,2 @@
+yarn fix:eslint
+yarn fix:prettier
