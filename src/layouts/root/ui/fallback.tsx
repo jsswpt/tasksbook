@@ -1,14 +1,11 @@
 import { Template } from './template'
 
+import { Appbar } from '@/widgets/appbar'
+
 type FallbackProps = {
   children: JSX.Element
 }
 
 export const Fallback = ({ children }: FallbackProps) => (
-  <Template
-    header={<header>loading...</header>}
-    footer={<footer>loading...</footer>}
-  >
-    {children}
-  </Template>
+  <Template header={<Appbar isFallback />}>{children}</Template>
 )
