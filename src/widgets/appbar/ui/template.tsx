@@ -8,34 +8,26 @@ type TemplateProps = {
 }
 
 export const Template = ({ avatar, newTaskButton }: TemplateProps) => (
-  <>
-    <AppBar
-      color="transparent"
-      elevation={0}
-      sx={({ spacing }) => ({
-        left: spacing(SIDEBAR_WIDTH_LG),
-        width: `calc(100% - ${spacing(SIDEBAR_WIDTH_LG)})`,
-      })}
-    >
-      <Toolbar
-        disableGutters
-        sx={({ palette, spacing }) => ({
-          background: palette.background.default,
-          height: spacing(APPBAR_HEIGHT_LG),
-          paddingX: spacing(16),
-        })}
-      >
-        <Stack direction="row" justifyContent="space-between" width="100%">
-          {newTaskButton}
-          {avatar}
-        </Stack>
-      </Toolbar>
-    </AppBar>
+  <AppBar
+    color="transparent"
+    elevation={0}
+    sx={({ spacing }) => ({
+      left: spacing(SIDEBAR_WIDTH_LG),
+      width: `calc(100% - ${spacing(SIDEBAR_WIDTH_LG)})`,
+    })}
+  >
     <Toolbar
       disableGutters
-      sx={{
-        height: ({ spacing }) => spacing(APPBAR_HEIGHT_LG),
-      }}
-    />
-  </>
+      sx={({ palette, spacing }) => ({
+        background: palette.background.default,
+        height: spacing(APPBAR_HEIGHT_LG),
+        paddingX: spacing(16),
+      })}
+    >
+      <Stack direction="row" justifyContent="space-between" width="100%">
+        {newTaskButton}
+        {avatar}
+      </Stack>
+    </Toolbar>
+  </AppBar>
 )
