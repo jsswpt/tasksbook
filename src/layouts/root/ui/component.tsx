@@ -1,11 +1,11 @@
 import { Template } from './template'
 
+import { Appbar } from '@/widgets/appbar'
+
 type ComponentProps = {
   children: JSX.Element
 }
 
 export const Component = ({ children }: ComponentProps) => (
-  <Template footer={<footer>footer</footer>} header={<header>header</header>}>
-    {children}
-  </Template>
+  <Template header={<Appbar />}>{children}</Template>
 )
