@@ -1,7 +1,7 @@
 import { createEffect, createStore } from 'effector'
 
 export const authorizeOnLoadFx = createEffect(
-  async () =>
+  () =>
     new Promise((res) =>
       setTimeout(() => {
         res(null)
