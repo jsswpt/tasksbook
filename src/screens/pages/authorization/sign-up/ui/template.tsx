@@ -1,8 +1,13 @@
+import { Box } from '@mui/material'
+
+import { session } from '@/entities'
+
 type TemplateProps = {
-  // TODO: удалить
-  isFallback?: boolean
+  signUpForm: React.ReactNode
 }
 
-export const Template = ({ isFallback }: TemplateProps) => (
-  <>'SignUpPage' template {isFallback ? 'fallback' : 'component'}</>
+export const Template = ({ signUpForm }: TemplateProps) => (
+  <Box maxWidth={({ spacing }) => spacing(320)} width="100%">
+    <session.AuthCard title="Регистрация">{signUpForm}</session.AuthCard>
+  </Box>
 )

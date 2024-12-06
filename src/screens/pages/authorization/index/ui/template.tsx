@@ -1,8 +1,17 @@
+import { Stack } from '@mui/material'
+import React from 'react'
+
 type TemplateProps = {
   // TODO: удалить
-  isFallback?: boolean
+  buttons: React.ReactNode
 }
 
-export const Template = ({ isFallback }: TemplateProps) => (
-  <>'AuthorizationPage' template {isFallback ? 'fallback' : 'component'}</>
+export const Template = ({ buttons }: TemplateProps) => (
+  <Stack
+    gap={({ spacing }) => spacing(8)}
+    maxWidth={({ spacing }) => spacing(320)}
+    width="100%"
+  >
+    {buttons}
+  </Stack>
 )
