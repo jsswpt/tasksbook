@@ -11,6 +11,8 @@ import { ProfilePage } from './profile/index'
 import { AuthLayout } from '@/layouts/auth'
 import { RootLayout } from '@/layouts/root'
 
+import { session } from '@/entities'
+
 const routesConfig: RouteObject[] = [
   {
     children: [
@@ -32,9 +34,11 @@ const routesConfig: RouteObject[] = [
       },
     ],
     element: (
-      <RootLayout>
-        <Outlet />
-      </RootLayout>
+      <session.AuthGuard>
+        <RootLayout>
+          <Outlet />
+        </RootLayout>
+      </session.AuthGuard>
     ),
     path: '/',
   },
@@ -54,9 +58,11 @@ const routesConfig: RouteObject[] = [
       },
     ],
     element: (
-      <AuthLayout>
-        <Outlet />
-      </AuthLayout>
+      <session.AuthGuard reverse>
+        <AuthLayout>
+          <Outlet />
+        </AuthLayout>
+      </session.AuthGuard>
     ),
     path: '/authorization',
   },
