@@ -1,6 +1,5 @@
 import { Box, Stack } from '@mui/material'
-import { useUnit } from 'effector-react'
-import { useLayoutEffect } from 'react'
+import { useGate, useUnit } from 'effector-react'
 import { Navigate } from 'react-router-dom'
 
 import { session } from '@/entities'
@@ -18,9 +17,7 @@ export const AuthGuard = ({ children, reverse }: AuthGuardProps) => {
     session.$isAuthorizing,
   ])
 
-  useLayoutEffect(() => {
-    session.authorizeOnLoadFx()
-  }, [])
+  useGate(session.authGate)
 
   if (isAuthorizing) {
     return (

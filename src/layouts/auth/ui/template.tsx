@@ -14,6 +14,7 @@ export const Template = ({ children }: TemplateProps) => (
       justifyContent="center"
       gap={({ spacing }) => spacing(32)}
       minHeight="100svh"
+      paddingBottom="16svh"
     >
       <Stack alignItems="center">
         <Box
