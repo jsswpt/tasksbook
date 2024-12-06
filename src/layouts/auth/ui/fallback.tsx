@@ -5,10 +5,5 @@ type FallbackProps = {
 }
 
 export const Fallback = ({ children }: FallbackProps) => (
-  <Template
-    header={<header>loading...</header>}
-    footer={<footer>loading...</footer>}
-  >
-    {children}
-  </Template>
+  <Template>{children}</Template>
 )
