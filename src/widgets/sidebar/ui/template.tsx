@@ -39,13 +39,9 @@ export const Template = ({
             sx={{
               '&>*': { height: '100%' },
               height: spacing(54),
-              width: spacing(119),
             }}
           >
-            <Logo
-              bgColor={palette.primary.main}
-              textColor={palette.background.default}
-            />
+            <Logo />
           </Link>
         </Stack>
         <Stack
