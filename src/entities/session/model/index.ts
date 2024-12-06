@@ -1,18 +1,24 @@
 import { createEffect, createStore } from 'effector'
+import { createGate } from 'effector-react'
 
-export const authorizeOnLoadFx = createEffect(
-  () =>
-    new Promise((res) =>
-      setTimeout(() => {
-        res(null)
-      }, 2000)
-    )
-)
+import { authorizeOnLoadReq } from '../api'
 
-export const $user = createStore(null)
+export const authorizeOnLoadFx = createEffect(authorizeOnLoadReq)
 
-$user.on(authorizeOnLoadFx.doneData, (value) => value)
+export type SessionUser = {
+  id: number
+  email: string
+  login: string
+}
+
+export const $user = createStore<SessionUser | null>(null)
+
+$user.on(authorizeOnLoadFx.doneData, (_, value) => value)
 
 export const $isAuth = $user.map((state) => !!state)
 
 export const $isAuthorizing = authorizeOnLoadFx.pending
+
+export const authGate = createGate()
+
+authGate.status.watch((opened) => opened && authorizeOnLoadFx())

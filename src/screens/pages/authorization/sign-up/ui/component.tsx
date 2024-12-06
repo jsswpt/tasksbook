@@ -1,3 +1,5 @@
 import { Template } from './template'
 
-export const Component = () => <Template />
+import { SignUp } from '@/features/authorization/sign-up'
+
+export const Component = () => <Template signUpForm={<SignUp />} />

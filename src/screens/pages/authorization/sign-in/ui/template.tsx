@@ -1,8 +1,13 @@
+import { Box } from '@mui/material'
+
+import { session } from '@/entities'
+
 type TemplateProps = {
-  // TODO: удалить
-  isFallback?: boolean
+  signInForm: JSX.Element
 }
 
-export const Template = ({ isFallback }: TemplateProps) => (
-  <>'SignInPage' template {isFallback ? 'fallback' : 'component'}</>
+export const Template = ({ signInForm }: TemplateProps) => (
+  <Box maxWidth={({ spacing }) => spacing(320)} width="100%">
+    <session.AuthCard title="Вход в аккаунт">{signInForm}</session.AuthCard>
+  </Box>
 )

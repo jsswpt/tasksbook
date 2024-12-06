@@ -1,3 +1,5 @@
 import { Template } from './template'
 
-export const Component = () => <Template />
+import { SignIn } from '@/features/authorization/sign-in'
+
+export const Component = () => <Template signInForm={<SignIn />} />
