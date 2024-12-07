@@ -1,4 +1,4 @@
-import { createEffect, createStore } from 'effector'
+import { createEffect, createStore, sample } from 'effector'
 import { createGate } from 'effector-react'
 
 import { authorizeOnLoadReq } from '../api'
@@ -19,6 +19,19 @@ export const $isAuth = $user.map((state) => !!state)
 
 export const $isAuthorizing = authorizeOnLoadFx.pending
 
+export const $isRequested = createStore(false)
+
 export const authGate = createGate()
 
-authGate.status.watch((opened) => opened && authorizeOnLoadFx())
+sample({
+  clock: authGate.open,
+  filter: (isRequested) => !isRequested,
+  source: $isRequested,
+  target: authorizeOnLoadFx,
+})
+
+sample({
+  clock: authGate.open,
+  fn: () => true,
+  target: $isRequested,
+})

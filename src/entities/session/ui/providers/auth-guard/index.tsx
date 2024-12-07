@@ -12,14 +12,15 @@ export type AuthGuardProps = {
 }
 
 export const AuthGuard = ({ children, reverse }: AuthGuardProps) => {
-  const [isAuth, isAuthorizing] = useUnit([
+  const [isAuth, isAuthorizing, isRequested] = useUnit([
     session.$isAuth,
     session.$isAuthorizing,
+    session.$isRequested,
   ])
 
   useGate(session.authGate)
 
-  if (isAuthorizing) {
+  if (isAuthorizing || !isRequested) {
     return (
       <Stack minHeight="100svh" alignItems="center" justifyContent="center">
         <Box
