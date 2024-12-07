@@ -9,8 +9,6 @@ import { EditTaskModal } from './edit-task'
 import { NewCategoryModal } from './new-category'
 import { NewTaskModal } from './new-task'
 
-import { session } from '@/entities'
-
 const routesConfig: Record<string, () => JSX.Element> = {
   'delete-category': DeleteCategoryModal,
   'delete-task': DeleteTaskModal,
@@ -33,14 +31,12 @@ export const ModalRouter = () => {
   )
 
   return (
-    <session.AuthGuard>
-      <Modal
-        open={!!Component}
-        onClose={() => navigate({ pathname: pagePath })}
-        sx={{ alignItems: 'center', display: 'flex', justifyContent: 'center' }}
-      >
-        {Component ? <Component /> : <></>}
-      </Modal>
-    </session.AuthGuard>
+    <Modal
+      open={!!Component}
+      onClose={() => navigate({ pathname: pagePath })}
+      sx={{ alignItems: 'center', display: 'flex', justifyContent: 'center' }}
+    >
+      {Component ? <Component /> : <></>}
+    </Modal>
   )
 }

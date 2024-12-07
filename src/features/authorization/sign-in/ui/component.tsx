@@ -63,6 +63,7 @@ export const Component = () => {
             Войти
           </Button>,
           <Button
+            disabled={!eachValid || isLoading}
             component={RouterLink}
             to="/authorization/sign-up"
             color="info"
