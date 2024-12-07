@@ -1,8 +1,17 @@
-type TemplateProps = {
-  // TODO: удалить
-  isFallback?: boolean
-}
+import { Button } from '@mui/material'
 
-export const Template = ({ isFallback }: TemplateProps) => (
-  <>'ProfilePage' template {isFallback ? 'fallback' : 'component'}</>
+export const Template = () => (
+  <>
+    <Button
+      fullWidth
+      color="error"
+      onClick={() => {
+        localStorage.removeItem('email')
+        localStorage.removeItem('password')
+        window.location.reload()
+      }}
+    >
+      Выйти
+    </Button>
+  </>
 )

@@ -1,6 +1,6 @@
 import {
   AddOutlined,
-  PersonOutlined,
+  HomeOutlined,
   WorkspacesOutlined,
 } from '@mui/icons-material'
 import { BottomNavigationAction } from '@mui/material'
@@ -13,10 +13,10 @@ export const Component = () => (
     items={[
       <BottomNavigationAction
         component={RouterLink}
-        to="/categories"
-        value="categories"
-        label="Категории"
-        icon={<WorkspacesOutlined />}
+        to="/"
+        value=""
+        label="Главная"
+        icon={<HomeOutlined />}
       />,
       <BottomNavigationAction
         component={RouterLink}
@@ -26,10 +26,10 @@ export const Component = () => (
       />,
       <BottomNavigationAction
         component={RouterLink}
-        to="/profile"
-        value="profile"
-        label="Профиль"
-        icon={<PersonOutlined />}
+        to="/categories"
+        value="categories"
+        label="Категории"
+        icon={<WorkspacesOutlined />}
       />,
     ]}
   />
