@@ -1,16 +1,18 @@
 import { AddOutlined } from '@mui/icons-material'
-import { Button, TextField } from '@mui/material'
+import { Button } from '@mui/material'
 import { useUnit } from 'effector-react'
 import { Link as RouterLink } from 'react-router-dom'
 
 import { Template } from './template'
+
+import { SearchCategories } from '@/features/search-categories'
 
 import { category } from '@/entities'
 
 const CategoriesList = () => {
   const isPending = useUnit(category.$isPending)
 
-  return <category.SidebarCategoriesList isFallback={isPending} />
+  return <category.NavCategoriesList isFallback={isPending} />
 }
 
 export const Component = () => (
@@ -25,14 +27,6 @@ export const Component = () => (
         Новая категория
       </Button>
     }
-    searchCategories={
-      <TextField
-        placeholder="Поиск по категориям"
-        label="Поиск"
-        fullWidth
-        size="small"
-        variant="standard"
-      />
-    }
+    searchCategories={<SearchCategories />}
   />
 )

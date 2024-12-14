@@ -1,16 +1,25 @@
-import { useList } from 'effector-react'
+import { useUnit } from 'effector-react'
 
-import { $categories, Category } from '@/entities/category/model'
+import {
+  $categoriesList,
+  $filteredCategoriesList,
+  Category,
+} from '@/entities/category/model'
 
 export type CategoryListProps = {
   render: (item: Category, index: number) => React.ReactNode
+  preferFiltered?: boolean
 }
 
-export const CategoryList = ({ render }: CategoryListProps) => {
-  const list = useList(
-    $categories.map((state) => (state !== null ? Object.values(state) : [])),
-    render
-  )
+export const CategoryList = ({ preferFiltered, render }: CategoryListProps) => {
+  const [categoriesList, filteredCategoriesList] = useUnit([
+    $categoriesList,
+    $filteredCategoriesList,
+  ])
 
-  return list
+  const list = preferFiltered
+    ? (filteredCategoriesList ?? categoriesList ?? [])
+    : (categoriesList ?? [])
+
+  return list.map(render)
 }

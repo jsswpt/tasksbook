@@ -9,8 +9,9 @@ export const Component = () => (
   <Template
     children={
       <category.CategoryList
+        preferFiltered
         render={({ id, title }) => (
-          <Box component="li">
+          <Box component="li" key={id}>
             <Link
               component={RouterLink}
               to={`/categories/${id}`}

@@ -6,7 +6,7 @@ const Component = lazy(() =>
   import('./component').then((m) => ({ default: m.Component }))
 )
 
-type SidebarCategoriesListProps =
+type NavCategoriesListProps =
   | {
       isFallback: true
     }
@@ -14,9 +14,7 @@ type SidebarCategoriesListProps =
       isFallback?: false
     }
 
-export const SidebarCategoriesList = ({
-  isFallback,
-}: SidebarCategoriesListProps) =>
+export const NavCategoriesList = ({ isFallback }: NavCategoriesListProps) =>
   isFallback ? (
     <Fallback />
   ) : (

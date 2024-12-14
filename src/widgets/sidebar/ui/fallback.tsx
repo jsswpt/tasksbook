@@ -2,11 +2,13 @@ import { Skeleton } from '@mui/material'
 
 import { Template } from './template'
 
+import { SearchCategories } from '@/features/search-categories'
+
 import { category } from '@/entities'
 
 export const Fallback = () => (
   <Template
-    categoriesList={<category.SidebarCategoriesList isFallback />}
+    categoriesList={<category.NavCategoriesList isFallback />}
     newCategoryButton={
       <Skeleton
         variant="rectangular"
@@ -14,12 +16,6 @@ export const Fallback = () => (
         sx={{ height: ({ spacing }) => spacing(36) }}
       />
     }
-    searchCategories={
-      <Skeleton
-        variant="rectangular"
-        width="100%"
-        sx={({ spacing }) => ({ height: spacing(29), marginTop: spacing(16) })}
-      />
-    }
+    searchCategories={<SearchCategories isFallback />}
   />
 )

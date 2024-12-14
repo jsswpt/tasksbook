@@ -1,1 +1,1 @@
-export * from './sidebar-categories-list'
+export * from './nav-categories-list'

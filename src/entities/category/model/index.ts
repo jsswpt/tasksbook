@@ -15,6 +15,23 @@ export type Category = {
 
 export const $categories = createStore<Normalized<Category> | null>(null)
 
+export const $categoriesList = $categories.map((state) =>
+  state ? Object.values(state) : null
+)
+
+export const $filteredCategories = createStore<Normalized<Category> | null>(
+  null
+)
+
+export const $filteredCategoriesList = $filteredCategories.map((state) =>
+  state ? Object.values(state) : null
+)
+
+export const $cachedFilteredCategories = createStore<Record<
+  string,
+  Normalized<Category>
+> | null>(null)
+
 $categories.on(getCategoriesFx.doneData, (_, value) => normalizeData(value))
 
 export const $isPending = getCategoriesFx.pending
