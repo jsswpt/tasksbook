@@ -50,7 +50,9 @@ sample({
 
 sample({
   clock: handleSubimt,
-  filter: ({ searchValue }) => searchValue.trim() !== '',
+  filter: ({ cachedFilteredCategories, searchValue }) =>
+    searchValue.trim() !== '' &&
+    !(searchValue in (cachedFilteredCategories ?? {})),
   fn: ({ categories, searchValue }) => ({
     categories: Object.fromEntries(
       Object.entries(categories ?? {}).filter(([, value]) =>
@@ -59,7 +61,11 @@ sample({
     ),
     searchValue,
   }),
-  source: { categories: category.$categories, searchValue: $searchValue },
+  source: {
+    cachedFilteredCategories: category.$cachedFilteredCategories,
+    categories: category.$categories,
+    searchValue: $searchValue,
+  },
   target: cacheSearchResult,
 })
 
