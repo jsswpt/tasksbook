@@ -5,9 +5,9 @@ import { Template } from './template'
 export const Fallback = () => (
   <Template>
     <Skeleton
-      variant="rectangular"
+      variant="rounded"
       width="100%"
-      sx={({ spacing }) => ({ height: spacing(29), marginTop: spacing(16) })}
+      sx={({ spacing }) => ({ height: spacing(40) })}
     />
   </Template>
 )
