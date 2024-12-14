@@ -12,7 +12,8 @@
     "fix:eslint": "yarn eslint . --fix --cache",
     "fix:prettier": "yarn prettier . --write --cache",
     "watch:eslint": "yarn watch:nodemon 'yarn fix:eslint'",
-    "watch:prettier": "yarn watch:nodemon 'yarn fix:prettier'"
+    "watch:prettier": "yarn watch:nodemon 'yarn fix:prettier'",
+    "test": "vitest"
   },
   "dependencies": {
     "@emotion/react": "^11.13.5",

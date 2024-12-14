@@ -8,7 +8,7 @@ import { Logo } from '@/shared/ui'
 
 export type AuthGuardProps = {
   reverse?: boolean
-  children: JSX.Element
+  children: React.ReactNode
 }
 
 export const AuthGuard = ({ children, reverse }: AuthGuardProps) => {

@@ -1,12 +1,12 @@
-import { Box, Skeleton } from '@mui/material'
+import { Skeleton } from '@mui/material'
 
 import { Template } from './template'
 
+import { category } from '@/entities'
+
 export const Fallback = () => (
   <Template
-    categoriesList={
-      <Box marginLeft={({ spacing }) => spacing(20)}>loading...</Box>
-    }
+    categoriesList={<category.SidebarCategoriesList isFallback />}
     newCategoryButton={
       <Skeleton
         variant="rectangular"

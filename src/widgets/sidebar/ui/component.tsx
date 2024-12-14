@@ -1,12 +1,21 @@
 import { AddOutlined } from '@mui/icons-material'
-import { Box, Button, TextField } from '@mui/material'
+import { Button, TextField } from '@mui/material'
+import { useUnit } from 'effector-react'
 import { Link as RouterLink } from 'react-router-dom'
 
 import { Template } from './template'
 
+import { category } from '@/entities'
+
+const CategoriesList = () => {
+  const isPending = useUnit(category.$isPending)
+
+  return <category.SidebarCategoriesList isFallback={isPending} />
+}
+
 export const Component = () => (
   <Template
-    categoriesList={<Box marginLeft={({ spacing }) => spacing(20)}>TODO</Box>}
+    categoriesList={<CategoriesList />}
     newCategoryButton={
       <Button
         component={RouterLink}

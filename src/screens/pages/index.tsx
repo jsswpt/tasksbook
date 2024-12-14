@@ -11,7 +11,7 @@ import { ProfilePage } from './profile/index'
 import { AuthLayout } from '@/layouts/auth'
 import { RootLayout } from '@/layouts/root'
 
-import { session } from '@/entities'
+import { category, session } from '@/entities'
 
 const routesConfig: RouteObject[] = [
   {
@@ -35,6 +35,7 @@ const routesConfig: RouteObject[] = [
     ],
     element: (
       <session.AuthGuard>
+        <category.CategoryProvider />
         <RootLayout>
           <Outlet />
         </RootLayout>

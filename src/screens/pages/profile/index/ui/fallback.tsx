@@ -1,3 +1,3 @@
 import { Template } from './template'
 
-export const Fallback = () => <Template  />
+export const Fallback = () => <Template />
