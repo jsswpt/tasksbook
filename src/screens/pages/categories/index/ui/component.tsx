@@ -1,3 +1,7 @@
 import { Template } from './template'
 
-export const Component = () => <Template />
+import { category } from '@/entities'
+
+export const Component = () => (
+  <Template categories={<category.NavCategoriesList />} />
+)

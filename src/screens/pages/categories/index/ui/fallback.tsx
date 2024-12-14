@@ -1,3 +1,7 @@
 import { Template } from './template'
 
-export const Fallback = () => <Template isFallback />
+import { category } from '@/entities'
+
+export const Fallback = () => (
+  <Template categories={<category.NavCategoriesList />} />
+)

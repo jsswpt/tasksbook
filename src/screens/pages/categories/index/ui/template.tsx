@@ -1,8 +1,5 @@
 type TemplateProps = {
-  // TODO: удалить
-  isFallback?: boolean
+  categories: JSX.Element
 }
 
-export const Template = ({ isFallback }: TemplateProps) => (
-  <>'CategoriesPage' template {isFallback ? 'fallback' : 'component'}</>
-)
+export const Template = ({ categories }: TemplateProps) => categories

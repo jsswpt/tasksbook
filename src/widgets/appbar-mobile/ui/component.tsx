@@ -3,12 +3,14 @@ import {
   NotificationsNoneOutlined,
   SearchOutlined,
 } from '@mui/icons-material'
-import { Avatar, IconButton, Typography } from '@mui/material'
+import { Avatar, Box, IconButton, Link, Stack, Typography } from '@mui/material'
 import { useUnit } from 'effector-react'
-import React, { useMemo } from 'react'
+import React, { useMemo, useState } from 'react'
 import { Link as RouterLink, useLocation } from 'react-router-dom'
 
 import { Template } from './template'
+
+import { SearchCategories } from '@/features/search-categories'
 
 import { session } from '@/entities'
 
@@ -37,6 +39,56 @@ const RenderUserName = () => {
   return <RenderTitle title={user?.login ?? ''} />
 }
 
+const CategoriesSearchBar = () => {
+  const [isOpen, setIsOpen] = useState(false)
+
+  if (isOpen) {
+    return (
+      <Stack
+        zIndex={1}
+        position="absolute"
+        left={0}
+        right={0}
+        top={0}
+        bottom={0}
+        paddingX={({ spacing }) => spacing(16)}
+        direction="row"
+        alignItems="center"
+        gap={({ spacing }) => spacing(8)}
+        bgcolor="Background"
+      >
+        <Box flex={1}>
+          <SearchCategories />
+        </Box>
+        <Link
+          component="button"
+          variant="body2"
+          underline="none"
+          color={({ palette }) => palette.primary.main}
+          onClick={() => setIsOpen(false)}
+          sx={{
+            '&:active': {
+              opacity: '0.6',
+            },
+            cursor: 'pointer',
+            transition: ({ transitions }) =>
+              transitions.duration.shortest + 'ms',
+            userSelect: 'none',
+          }}
+        >
+          Отмена
+        </Link>
+      </Stack>
+    )
+  }
+
+  return (
+    <IconButton onClick={() => setIsOpen(true)} size="small" key="search">
+      <SearchOutlined />
+    </IconButton>
+  )
+}
+
 const pagePathToComponents: PagePathToComponents = {
   '/': {
     centerItem: <RenderTitle title="Главная" />,
@@ -59,9 +111,7 @@ const pagePathToComponents: PagePathToComponents = {
   '/categories': {
     centerItem: <RenderTitle title="Категории" />,
     endItem: [
-      <IconButton size="small" key="search">
-        <SearchOutlined />
-      </IconButton>,
+      <CategoriesSearchBar />,
       <IconButton size="small" key="notifications">
         <NotificationsNoneOutlined />
       </IconButton>,
