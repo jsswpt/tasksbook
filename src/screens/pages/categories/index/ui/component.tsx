@@ -1,4 +1,5 @@
 import { useUnit } from 'effector-react'
+
 import { Template } from './template'
 
 import { category } from '@/entities'
@@ -9,6 +10,4 @@ const CategoriesList = () => {
   return <category.NavCategoriesList isFallback={isPending} />
 }
 
-export const Component = () => (
-  <Template categories={<CategoriesList/>} />
-)
+export const Component = () => <Template categories={<CategoriesList />} />
